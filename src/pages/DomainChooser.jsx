@@ -84,6 +84,8 @@ const DomainChooser = () => {
                   variants={itemVariants}
                   className="domain-card"
                   onClick={() => setSelectedDomain(domain)}
+                  whileHover={{ scale: 1.05, y: -10, boxShadow: '0 20px 40px -10px rgba(139, 92, 246, 0.3)' }}
+                  whileTap={{ scale: 0.95 }}
                 >
                   <div className="domain-icon-wrapper">
                     {domain.icon}

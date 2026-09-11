@@ -1,18 +1,20 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Bot, Send, Paperclip, MoreVertical, Sparkles } from 'lucide-react';
+import { GoogleGenerativeAI } from '@google/generative-ai';
 import './Chatbot.css';
 
 const Chatbot = () => {
   const [messages, setMessages] = useState([
     { 
       id: 1, 
-      text: "Hi there! I'm ElevateAI, your personal career mentor. I can help you with placement preparation, analyze your skills, recommend a domain, or provide study guidance. How can I assist you today?", 
+      text: "Hi there! I'm CampusAI, your personal career mentor from Campus to Industry. I can help you with placement preparation, analyze your skills, recommend a domain, or provide study guidance. How can I assist you today?", 
       type: 'ai',
       time: '10:00 AM'
     }
   ]);
   const [inputVal, setInputVal] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
   const chatBottomRef = useRef(null);
 
   useEffect(() => {
@@ -20,30 +22,58 @@ const Chatbot = () => {
     chatBottomRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
 
-  const handleSend = () => {
+  const handleSend = async () => {
     if (!inputVal.trim()) return;
 
     const timeString = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    const userMessage = inputVal;
 
     // Add User Message
     const newMessages = [...messages, { 
       id: Date.now(), 
-      text: inputVal, 
+      text: userMessage, 
       type: 'user',
       time: timeString
     }];
     setMessages(newMessages);
     setInputVal('');
+    setIsLoading(true);
 
-    // Simulate AI typing and response
-    setTimeout(() => {
+    try {
+      const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
+      if (!apiKey) {
+        throw new Error("Gemini API key is not set. Please set VITE_GEMINI_API_KEY in your .env.local file.");
+      }
+      
+      const genAI = new GoogleGenerativeAI(apiKey);
+      const model = genAI.getGenerativeModel({ 
+        model: "gemini-3.6-flash",
+        systemInstruction: "You are CampusAI, a highly intelligent and unique career mentor AI like Google Gemini for the Campus to Industry platform. Focus on answering questions about the web domain, technology, placement preparation, and career guidance. Provide unique, encouraging, and highly informative answers."
+      });
+
+      // Prepare simple chat text for context without overwhelming tokens
+      const prompt = `User's new message: "${userMessage}"\n\nRespond uniquely and helpfully as CampusAI, a career and tech mentor. If the message relates to the web domain, provide specifically insightful answers.`;
+
+      const result = await model.generateContent(prompt);
+      const responseText = result.response.text();
+
       setMessages(prev => [...prev, { 
         id: Date.now() + 1, 
-        text: "I can certainly help you with that. Let's start by looking at your current skills or the domain you're interested in pursuing. Have you used our Skill Gap tool yet?", 
+        text: responseText, 
         type: 'ai',
         time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
       }]);
-    }, 1200);
+    } catch (error) {
+      console.error("Error fetching AI response:", error);
+      setMessages(prev => [...prev, { 
+        id: Date.now() + 1, 
+        text: "Sorry, I'm having trouble connecting right now. " + (error.message || ""), 
+        type: 'ai',
+        time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+      }]);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleKeyDown = (e) => {
@@ -67,7 +97,7 @@ const Chatbot = () => {
               <Sparkles size={24} />
             </div>
             <div className="ai-info">
-              <h2>ElevateAI Mentor</h2>
+              <h2>CampusAI Mentor</h2>
               <div className="ai-status">
                 <span className="status-dot"></span>
                 Online | Ready to assist
@@ -93,6 +123,17 @@ const Chatbot = () => {
               <div className="chat-time">{msg.time}</div>
             </motion.div>
           ))}
+          {isLoading && (
+            <motion.div 
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="chat-bubble-wrapper ai"
+            >
+              <div className="chat-bubble shadow-sm" style={{ fontStyle: 'italic', opacity: 0.7 }}>
+                CampusAI is thinking...
+              </div>
+            </motion.div>
+          )}
           <div ref={chatBottomRef} />
         </div>
 
@@ -103,7 +144,7 @@ const Chatbot = () => {
             </button>
             <textarea 
               className="chat-textarea"
-              placeholder="Message ElevateAI..."
+              placeholder="Message CampusAI..."
               value={inputVal}
               onChange={(e) => setInputVal(e.target.value)}
               onKeyDown={handleKeyDown}

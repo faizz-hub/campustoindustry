@@ -1,0 +1,436 @@
+.resume-page {
+  padding: 2rem 1rem;
+}
+
+.resume-header {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.resume-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .resume-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Left Form Area */
+.resume-form {
+  padding: 2rem;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.resume-form::-webkit-scrollbar {
+  width: 6px;
+}
+.resume-form::-webkit-scrollbar-track {
+  background: transparent;
+}
+.resume-form::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+.form-section {
+  margin-bottom: 2rem;
+}
+
+.form-section h3 {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  color: var(--king-purple-400);
+  border-bottom: 1px solid rgba(139, 92, 246, 0.2);
+  padding-bottom: 0.5rem;
+}
+
+.input-group {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.input-row {
+  display: flex;
+  gap: 1rem;
+}
+
+.input-row .input-group {
+  flex: 1;
+}
+
+.input-group label {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.4rem;
+}
+
+.input-group input,
+.input-group textarea {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--border-color);
+  padding: 0.8rem;
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-family: inherit;
+  transition: border-color 0.2s;
+}
+
+.input-group input:focus,
+.input-group textarea:focus {
+  outline: none;
+  border-color: var(--king-purple-500);
+}
+
+/* Right Preview Area */
+.resume-preview-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  position: sticky;
+  top: 100px;
+}
+
+.preview-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* The actual "paper" resume */
+.resume-paper {
+  background: #ffffff; /* Explicitly white for resume */
+  color: #1a1a1a;      /* Explicitly dark text for contrast */
+  padding: 2.5rem;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  min-height: 600px;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.resume-paper-header {
+  border-bottom: 2px solid #e5e7eb;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+}
+
+.resume-paper-header h1 {
+  font-size: 2rem;
+  color: #111827;
+  margin-bottom: 0.2rem;
+}
+
+.resume-paper-header h2 {
+  font-size: 1.1rem;
+  color: #4b5563;
+  font-weight: 500;
+  margin-bottom: 0.8rem;
+}
+
+.contact-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+.contact-info span {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.resume-section {
+  margin-bottom: 1.2rem;
+}
+
+.resume-section h3 {
+  font-size: 1rem;
+  text-transform: uppercase;
+  color: var(--king-purple-600); /* Inject a bit of theme color */
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 0.3rem;
+  margin-bottom: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.resume-section p, .pre-wrap {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #374151;
+}
+
+.pre-wrap {
+  white-space: pre-wrap;
+}
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.skill-pill {
+  background: #f3f4f6;
+  color: #4b5563;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+/* ATS Scanner Styles */
+.role-selector-input {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  padding: 0.45rem 0.75rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.8rem;
+  font-family: inherit;
+  cursor: pointer;
+  max-width: 260px;
+}
+
+.role-selector-input:focus {
+  outline: none;
+  border-color: var(--king-purple-500);
+}
+
+.ats-scan-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.825rem;
+  font-weight: 600;
+  white-space: nowrap;
+  background: linear-gradient(135deg, rgba(236, 72, 153, 0.15), rgba(124, 58, 237, 0.15));
+  border: 1px solid rgba(236, 72, 153, 0.4);
+  color: var(--text-primary);
+}
+
+.ats-scan-btn:hover:not(:disabled) {
+  border-color: #ec4899;
+  transform: translateY(-1px);
+}
+
+.ats-review-panel {
+  padding: 1.5rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(124, 58, 237, 0.35);
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.07) 0%, rgba(236, 72, 153, 0.05) 100%);
+  margin-bottom: 1rem;
+}
+
+.ats-score-banner {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.ats-score-circle {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  border: 4px solid var(--king-purple-500);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-primary);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.ats-score-val {
+  font-size: 1.5rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.ats-score-max {
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+}
+
+.ats-score-details {
+  flex: 1;
+}
+
+.ats-close-btn {
+  background: transparent;
+  border: none;
+  font-size: 1rem;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 0.2rem 0.5rem;
+}
+
+.ats-close-btn:hover {
+  color: var(--text-primary);
+}
+
+.ats-summary-text {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.45;
+  margin-top: 0.5rem;
+}
+
+.ats-section-block {
+  margin-bottom: 1.25rem;
+}
+
+.ats-section-heading {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin-bottom: 0.35rem;
+}
+
+.ats-keywords-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.ats-kw-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.3rem 0.65rem;
+  border-radius: 9999px;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.ats-kw-chip:hover:not(:disabled) {
+  border-color: var(--king-purple-500);
+  background: rgba(124, 58, 237, 0.1);
+}
+
+.ats-kw-chip.kw-added {
+  background: rgba(16, 185, 129, 0.15);
+  border-color: #10b981;
+  color: #10b981;
+  cursor: default;
+}
+
+.ats-rewrites-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.ats-rewrite-card {
+  padding: 0.85rem 1rem;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+}
+
+.ats-rewrite-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.ats-old-bullet, .ats-new-bullet {
+  font-size: 0.825rem;
+}
+
+.bullet-tag {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding: 0.15rem 0.45rem;
+  border-radius: 3px;
+  margin-bottom: 0.25rem;
+}
+
+.weak-tag {
+  background: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+}
+
+.strong-tag {
+  background: rgba(16, 185, 129, 0.15);
+  color: #10b981;
+}
+
+.ats-copy-bullet-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.7rem;
+  background: transparent;
+  border: 1px solid var(--border-color);
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  color: var(--text-secondary);
+  cursor: pointer;
+}
+
+.ats-copy-bullet-btn:hover {
+  color: var(--text-primary);
+  border-color: var(--king-purple-500);
+}
+
+.ats-reason-note {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  margin-top: 0.35rem;
+  font-style: italic;
+}
+
+.ats-tips-list {
+  padding-left: 1.2rem;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+.ats-tips-list li {
+  margin-bottom: 0.3rem;
+}
+
+/* Print Styles */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  .resume-paper, .resume-paper * {
+    visibility: visible;
+  }
+  .resume-paper {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    box-shadow: none;
+    background: transparent;
+  }
+  @page {
+    margin: 1cm;
+  }
+}

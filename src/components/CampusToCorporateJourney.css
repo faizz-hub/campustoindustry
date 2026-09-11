@@ -1,0 +1,529 @@
+.campus-journey-container {
+  margin: 0;
+  padding: 1.75rem;
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(124, 58, 237, 0.3);
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.08) 0%, rgba(16, 185, 129, 0.04) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Top bar */
+.journey-top-bar {
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.journey-badge-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.journey-main-title {
+  font-size: 1.65rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+
+/* Celebration Particles on Reaching Corporate Hub */
+.celebration-particles {
+  position: absolute;
+  top: -45px;
+  right: -10px;
+  width: 140px;
+  height: 120px;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.confetti {
+  position: absolute;
+  font-size: 1.25rem;
+  animation: confettiBurst 1.2s infinite ease-out;
+}
+
+.c1 { top: 10px; left: 10px; animation-delay: 0s; }
+.c2 { top: 30px; left: 60px; animation-delay: 0.2s; font-size: 1rem; }
+.c3 { top: 0px; left: 80px; animation-delay: 0.4s; }
+.c4 { top: 40px; left: 20px; animation-delay: 0.6s; font-size: 1.1rem; }
+.c5 { top: -10px; left: 45px; animation-delay: 0.3s; font-size: 1.3rem; }
+
+@keyframes confettiBurst {
+  0% { transform: translateY(15px) scale(0.4) rotate(0deg); opacity: 0; }
+  40% { opacity: 1; transform: translateY(-10px) scale(1.2) rotate(15deg); }
+  100% { transform: translateY(-30px) scale(0.8) rotate(45deg); opacity: 0; }
+}
+
+/* Viewport Track */
+.journey-viewport {
+  position: relative;
+  height: 250px;
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.08) 0%, rgba(124, 58, 237, 0.12) 100%);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+  perspective: 1000px;
+}
+
+[data-theme='dark'] .journey-viewport {
+  background: linear-gradient(180deg, #09090b 0%, rgba(124, 58, 237, 0.2) 100%);
+}
+
+.cyber-horizon {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 90px;
+  background: radial-gradient(ellipse at center, rgba(124, 58, 237, 0.3) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* Scene Zones */
+.scene-zone {
+  position: relative;
+  z-index: 2;
+  width: 130px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Campus Landmark */
+.landmark-campus {
+  width: 90px;
+  height: 80px;
+  background: var(--bg-primary);
+  border: 2px solid var(--king-purple-400);
+  border-radius: 8px;
+  position: relative;
+  box-shadow: 0 8px 20px rgba(124, 58, 237, 0.2);
+}
+
+.campus-roof {
+  position: absolute;
+  top: -18px;
+  left: -5px;
+  right: -5px;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-bottom: 18px solid var(--king-purple-600);
+}
+
+.campus-pillars {
+  display: flex;
+  justify-content: space-around;
+  height: 50px;
+  padding-top: 10px;
+}
+
+.campus-pillars span {
+  width: 8px;
+  background: var(--border-color);
+  border-radius: 2px;
+}
+
+.campus-door {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 22px;
+  height: 25px;
+  background: var(--king-purple-600);
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
+
+.floating-campus-items {
+  position: absolute;
+  top: -30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.books-badge {
+  font-size: 0.65rem;
+  font-weight: 700;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  padding: 0.15rem 0.5rem;
+  border-radius: 9999px;
+  color: var(--text-secondary);
+}
+
+/* Corporate Towers */
+.landmark-corporate {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.35rem;
+  height: 110px;
+}
+
+.tower {
+  background: linear-gradient(180deg, #18181b, #27272a);
+  border: 1px solid rgba(124, 58, 237, 0.4);
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.35rem 0.15rem;
+  position: relative;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.tower-1 { width: 34px; height: 85px; }
+.tower-2 { width: 42px; height: 110px; background: linear-gradient(180deg, #3b0764, #18181b); border-color: #a855f7; }
+.tower-3 { width: 32px; height: 75px; }
+
+.tower-logo {
+  font-size: 0.55rem;
+  font-weight: 800;
+  color: #10b981;
+  letter-spacing: 0.05em;
+  margin-top: 0.2rem;
+}
+
+.tower-windows {
+  width: 80%;
+  height: 60%;
+  background-image: radial-gradient(#60a5fa 20%, transparent 20%);
+  background-size: 6px 6px;
+  opacity: 0.7;
+}
+
+.floating-corporate-items {
+  position: absolute;
+  top: -30px;
+  right: 0;
+}
+
+.offer-letter-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: var(--bg-primary);
+  border: 1px solid #10b981;
+  padding: 0.25rem 0.65rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #10b981;
+  white-space: nowrap;
+  box-shadow: 0 0 12px rgba(16, 185, 129, 0.3);
+}
+
+/* Career Highway */
+.career-highway {
+  position: absolute;
+  left: 130px;
+  right: 130px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+}
+
+.highway-road {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 12px;
+  background: linear-gradient(90deg, #8b5cf6, #3b82f6, #10b981);
+  border-radius: 9999px;
+  box-shadow: 0 0 20px rgba(124, 58, 237, 0.6);
+}
+
+.highway-stripes {
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(90deg, #fff 0, #fff 15px, transparent 15px, transparent 30px);
+  opacity: 0.7;
+  border-radius: 9999px;
+  animation: moveStripes 1.5s linear infinite;
+}
+
+@keyframes moveStripes {
+  from { background-position: 0 0; }
+  to { background-position: 60px 0; }
+}
+
+.energy-pulse-light {
+  position: absolute;
+  width: 60px;
+  height: 100%;
+  background: #ffffff;
+  filter: blur(4px);
+  border-radius: 9999px;
+  animation: pulseMove 2.5s infinite ease-in-out;
+}
+
+@keyframes pulseMove {
+  0% { left: 0%; opacity: 0; }
+  50% { opacity: 1; }
+  100% { left: 95%; opacity: 0; }
+}
+
+/* Milestone nodes along the road */
+.milestones-row {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+}
+
+.milestone-node {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  z-index: 3;
+}
+
+.node-marker {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--bg-primary);
+  border: 2px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: var(--transition);
+}
+
+.milestone-node:hover .node-marker {
+  transform: scale(1.15);
+  border-color: var(--king-purple-500);
+}
+
+.milestone-node.node-passed .node-marker {
+  border-color: #10b981;
+  background: rgba(16, 185, 129, 0.1);
+}
+
+.milestone-node.node-active .node-marker {
+  border-color: var(--king-purple-600);
+  background: var(--king-purple-100);
+  box-shadow: 0 0 16px rgba(124, 58, 237, 0.7);
+  transform: scale(1.2);
+}
+
+[data-theme='dark'] .milestone-node.node-active .node-marker {
+  background: rgba(124, 58, 237, 0.4);
+}
+
+.node-label {
+  position: absolute;
+  bottom: -28px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  white-space: nowrap;
+  color: var(--text-secondary);
+  background: var(--bg-primary);
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+  border: 1px solid var(--border-color);
+}
+
+.milestone-node.node-active .node-label {
+  color: var(--king-purple-600);
+  border-color: var(--king-purple-400);
+}
+
+/* THE STUDENT RUNNER AVATAR */
+.student-runner-avatar {
+  position: absolute;
+  top: -30px;
+  transform: translateX(-50%);
+  z-index: 5;
+  pointer-events: none;
+}
+
+.runner-character {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.runner-figure {
+  width: 42px;
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.runner-head {
+  font-size: 1.4rem;
+  animation: headBob 0.35s infinite alternate ease-in-out;
+}
+
+@keyframes headBob {
+  from { transform: translateY(0); }
+  to { transform: translateY(-4px); }
+}
+
+.runner-torso {
+  font-size: 1.2rem;
+  margin-top: -4px;
+}
+
+.tech-badge {
+  font-size: 0.55rem;
+  font-weight: 800;
+  background: #10b981;
+  color: white;
+  padding: 0.1rem 0.25rem;
+  border-radius: 2px;
+  margin-top: 2px;
+}
+
+.runner-legs {
+  display: flex;
+  gap: 6px;
+  margin-top: -2px;
+}
+
+.leg {
+  width: 5px;
+  height: 18px;
+  background: var(--king-purple-700);
+  border-radius: 9999px;
+  transform-origin: top center;
+}
+
+.leg-left {
+  animation: runLegLeft 0.35s infinite alternate ease-in-out;
+}
+
+.leg-right {
+  animation: runLegRight 0.35s infinite alternate ease-in-out;
+}
+
+@keyframes runLegLeft {
+  from { transform: rotate(35deg); }
+  to { transform: rotate(-35deg); }
+}
+
+@keyframes runLegRight {
+  from { transform: rotate(-35deg); }
+  to { transform: rotate(35deg); }
+}
+
+.runner-shadow {
+  width: 32px;
+  height: 6px;
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 50%;
+  filter: blur(2px);
+  margin-top: 2px;
+}
+
+.runner-particle-trail {
+  position: absolute;
+  left: -20px;
+  top: 25px;
+  display: flex;
+  gap: 4px;
+}
+
+.runner-particle-trail span {
+  width: 6px;
+  height: 6px;
+  background: var(--king-purple-400);
+  border-radius: 50%;
+  animation: fadeParticle 0.6s infinite ease-out;
+}
+
+.runner-particle-trail span:nth-child(2) { animation-delay: 0.2s; width: 4px; height: 4px; }
+.runner-particle-trail span:nth-child(3) { animation-delay: 0.4s; width: 3px; height: 3px; }
+
+@keyframes fadeParticle {
+  0% { opacity: 0.8; transform: translateX(0) scale(1); }
+  100% { opacity: 0; transform: translateX(-15px) scale(0.2); }
+}
+
+/* Detail Card below track */
+.milestone-detail-card {
+  margin-top: 1.75rem;
+  padding: 1.25rem 1.5rem;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.milestone-info-left {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.step-count-pill {
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  background: var(--king-purple-600);
+  color: white;
+  padding: 0.35rem 0.75rem;
+  border-radius: 9999px;
+  white-space: nowrap;
+}
+
+.detail-step-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.2rem;
+}
+
+.detail-step-desc {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+.detail-action-btn {
+  padding: 0.55rem 1.25rem;
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
+@media (max-width: 900px) {
+  .journey-viewport {
+    height: 280px;
+    padding: 0 0.5rem;
+  }
+  .career-highway {
+    left: 80px;
+    right: 80px;
+  }
+  .scene-zone {
+    width: 80px;
+  }
+  .milestone-detail-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
