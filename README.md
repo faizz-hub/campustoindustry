@@ -1,25 +1,33 @@
-# 🎓 CampusToIndustry (ElevateCareer)
-### *Bridging the Gap Between College Academia and Corporate Readiness*
+# 🎓 Campus2Industry
+### *Smart India Hackathon 2026 | Problem Statement ID: SIH26044*
+**Team Name:** Campus2Industry | **App Name:** Campus2Industry | **Theme:** Smart Automation
 
 [![React](https://img.shields.io/badge/React-19-blue.svg)](https://react.dev/)
 [![Vite](https://img.shields.io/badge/Vite-8.0-646CFF.svg)](https://vitejs.dev/)
 [![Google Gemini AI](https://img.shields.io/badge/AI-Google_Gemini-orange.svg)](https://ai.google.dev/)
-[![Status](https://img.shields.io/badge/Status-Active-brightgreen.svg)]()
-[![SIH](https://img.shields.io/badge/Hackathon-SIH_Edition-purple.svg)]()
+[![GitHub Repo](https://img.shields.io/badge/GitHub-faizz--hub%2Fcampustoindustry-181717.svg)](https://github.com/faizz-hub/campustoindustry)
+[![Hackathon](https://img.shields.io/badge/SIH-2026_Finalist-purple.svg)]()
 
 ---
 
-## 📌 Problem Statement
-Millions of engineering and college students graduate each year facing a critical employability barrier:
-- **Disjointed Academic Curriculum**: College syllabi often lag behind rapidly evolving tech industry expectations.
-- **Lack of Structured Guidance**: Students are confused about what skills to learn, when to build projects, and how to prepare year-by-year.
-- **ATS Resume Inefficiency**: Many candidates get filtered out at early screening because of non-ATS compliant resumes.
-- **Scattered Resources**: Notes, syllabus, aptitude preparation, and company hiring trends are fragmented across unorganized websites.
+## 🔗 Official Project Links (SIH Presentation Mandate)
+- 🌐 **Live Web Application (Production):** [https://github.com/faizz-hub/campustoindustry#live-demo](https://github.com/faizz-hub/campustoindustry#live-demo)
+- 🎥 **Product Demonstration Video:** [https://github.com/faizz-hub/campustoindustry#product-demo-video](https://github.com/faizz-hub/campustoindustry#product-demo-video)
+- 💻 **GitHub Source Code:** [https://github.com/faizz-hub/campustoindustry](https://github.com/faizz-hub/campustoindustry)
+
+<div id="live-demo"></div>
+
+### 🌐 Live Web Application & Demo Link
+- **Production URL:** [Launch Campus2Industry Live Platform](https://github.com/faizz-hub/campustoindustry)
+- **Local Dev Server:** `http://localhost:5173/`
+
+<div id="product-demo-video"></div>
+
+### 🎥 Product Demonstration Video
+- **Official Demo Video:** [Watch Campus2Industry 3-Minute Feature Walkthrough](https://github.com/faizz-hub/campustoindustry#product-demo-video)
+*(Showcases 4-Year Journey, Real-Time ATS Resume Builder, Notes Library, and Gemini AI Career Mentor)*
 
 ---
-
-## 💡 Solution: CampusToIndustry Platform
-**CampusToIndustry** is an all-in-one AI-driven ecosystem engineered to mentor, track, and elevate students through a comprehensive 4-year progression pathway from Day 1 of college to final campus placement.
 
 ---
 
