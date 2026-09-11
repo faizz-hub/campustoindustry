@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Campus2Industry - Smart India Hackathon 2026 Presentation</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    @page {
+      size: 16in 9in;
+      margin: 0;
+    }
+
+    body {
+      background-color: #0f172a;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px 0;
+      gap: 30px;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .slide {
+      width: 1280px;
+      height: 720px; /* 16:9 widescreen */
+      background: #ffffff;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+      display: flex;
+      flex-direction: column;
+      padding: 30px 45px 25px 45px;
+      page-break-after: always;
+      page-break-inside: avoid;
+    }
+
+    /* Top Bar */
+    .top-header {
+      display: grid;
+      grid-template-columns: 200px 1fr 200px;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+
+    .pill-badge {
+      border: 1.5px solid #94a3b8;
+      border-radius: 20px;
+      padding: 6px 16px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #0f172a;
+      background: #ffffff;
+      width: fit-content;
+    }
+
+    .slide-center-title {
+      font-size: 22px;
+      font-weight: 800;
+      color: #0f172a;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    .sih-badge {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 8px;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      padding: 5px 12px;
+      background: #f8fafc;
+      width: fit-content;
+      justify-self: end;
+    }
+
+    .sih-badge-text {
+      text-align: right;
+      line-height: 1.2;
+    }
+
+    .sih-badge-title {
+      font-size: 10px;
+      font-weight: 800;
+      color: #1d4ed8;
+      letter-spacing: 0.5px;
+    }
+
+    .sih-badge-sub {
+      font-size: 9px;
+      font-weight: 700;
+      color: #d97706;
+    }
+
+    /* Content Area */
+    .content-area {
+      flex: 1;
+      display: flex;
+      gap: 25px;
+    }
+
+    .col {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .card {
+      background: #f8fafc;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 16px 18px;
+    }
+
+    .card-highlight {
+      background: #f0fdf4;
+      border: 1.5px solid #16a34a;
+    }
+
+    .card-blue {
+      background: #eff6ff;
+      border: 1.5px solid #2563eb;
+    }
+
+    .card-red {
+      background: #fef2f2;
+      border: 1.5px solid #dc2626;
+    }
+
+    .section-title {
+      font-size: 14px;
+      font-weight: 800;
+      color: #1d4ed8;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+
+    .section-title.dark {
+      color: #0f172a;
+    }
+
+    .section-title.red {
+      color: #b91c1c;
+    }
+
+    .section-title.green {
+      color: #15803d;
+    }
+
+    p, li {
+      font-size: 11.5px;
+      line-height: 1.45;
+      color: #334155;
+    }
+
+    ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    li {
+      margin-bottom: 6px;
+      position: relative;
+      padding-left: 14px;
+    }
+
+    li::before {
+      content: "•";
+      color: #2563eb;
+      font-weight: bold;
+      font-size: 14px;
+      position: absolute;
+      left: 0;
+      top: -1px;
+    }
+
+    li.red-bullet::before {
+      color: #dc2626;
+    }
+
+    li.green-bullet::before {
+      color: #16a34a;
+    }
+
+    strong {
+      color: #0f172a;
+      font-weight: 700;
+    }
+
+    /* Link Containers */
+    .link-box {
+      background: #f0fdf4;
+      border: 1.5px solid #16a34a;
+      border-radius: 8px;
+      padding: 10px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .link-title {
+      font-size: 11.5px;
+      font-weight: 800;
+      color: #15803d;
+      text-transform: uppercase;
+    }
+
+    .link-val {
+      font-size: 11px;
+      font-weight: 700;
+      color: #1d4ed8;
+      text-decoration: underline;
+      word-break: break-all;
+    }
+
+    /* Bottom Footer Bar */
+    .footer-bar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      margin-top: 10px;
+    }
+
+    .footer-badge {
+      background: #0284c7;
+      color: #ffffff;
+      padding: 5px 30px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .slide-number {
+      position: absolute;
+      right: 0;
+      font-size: 15px;
+      font-weight: 800;
+      color: #1d4ed8;
+    }
+
+    /* Print Styles */
+    @media print {
+      body {
+        background: transparent;
+        padding: 0;
+        gap: 0;
+      }
+      .slide {
+        box-shadow: none;
+        margin: 0;
+        width: 100vw;
+        height: 100vh;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== SLIDE 1 ==================== -->
+  <div class="slide" id="slide-1">
+    <div class="top-header" style="margin-bottom: 10px;">
+      <div></div>
+      <div class="sih-badge">
+        <div class="sih-badge-text">
+          <div class="sih-badge-title">SMART INDIA HACKATHON 2026</div>
+          <div class="sih-badge-sub">SIH26044</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align: center; margin-bottom: 25px;">
+      <h1 style="font-size: 32px; font-weight: 800; color: #1d4ed8; letter-spacing: 0.5px;">SMART INDIA HACKATHON 2026</h1>
+      <h2 style="font-size: 26px; font-weight: 800; color: #94a3b8; letter-spacing: 1px; margin-top: 2px;">CAMPUS2INDUSTRY</h2>
+    </div>
+
+    <div class="content-area" style="gap: 30px;">
+      <!-- Left Meta Details -->
+      <div class="col" style="flex: 1.2; justify-content: center; gap: 14px;">
+        <div style="font-size: 14px; line-height: 1.6;">
+          <p style="font-size: 14px; margin-bottom: 8px;"><strong>Problem Statement ID –</strong> SIH26044</p>
+          <p style="font-size: 14px; margin-bottom: 8px;"><strong>Problem Statement Title –</strong> Portal for Academia - Industry collaboration for Skill Mapping, Internships and Placement</p>
+          <p style="font-size: 14px; margin-bottom: 8px;"><strong>Theme –</strong> Smart Automation</p>
+          <p style="font-size: 14px; margin-bottom: 8px;"><strong>PS Category –</strong> Software</p>
+          <p style="font-size: 14px; margin-bottom: 8px;"><strong>Team ID –</strong> [Enter Registered Team ID]</p>
+          <p style="font-size: 14px; margin-bottom: 8px; color: #1d4ed8;"><strong>Team Name –</strong> <strong>Campus2Industry</strong> <span style="font-size: 12px; color: #64748b;">(Team & App Name Unified)</span></p>
+        </div>
+      </div>
+
+      <!-- Right Graphic / Pillars Card -->
+      <div class="col" style="flex: 0.8;">
+        <div class="card card-blue" style="height: 100%; display: flex; flex-direction: column; justify-content: center; padding: 22px; gap: 14px;">
+          <div style="text-align: center;">
+            <div style="font-size: 18px; font-weight: 800; color: #1d4ed8;">CAMPUS2INDUSTRY</div>
+            <div style="font-size: 11.5px; font-weight: 600; color: #64748b; margin-top: 3px;">Autonomous Career-Readiness & Verified Talent Pipeline</div>
+          </div>
+          <div style="border-top: 1px solid #bfdbfe; padding-top: 12px;">
+            <ul style="display: flex; flex-direction: column; gap: 8px;">
+              <li><strong>4-Year Progressive Journey:</strong> Day 1 to Placement Day milestone tracking</li>
+              <li><strong>Real-Time ATS Resume Engine:</strong> Gemini AI bullet refinement & scoring</li>
+              <li><strong>Dynamic Skill-Gap Radar:</strong> Syllabus-to-Industry market alignment</li>
+              <li><strong>Live Hiring & Cheat Sheets:</strong> Direct access to vetted roles & study kits</li>
+            </ul>
+          </div>
+          <div style="background: #ffffff; border: 1px solid #bfdbfe; border-radius: 6px; padding: 8px; text-align: center;">
+            <span style="font-size: 11px; font-weight: 800; color: #d97706;">CORE PRINCIPLE: "Claim ≠ Verified Skill"</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== SLIDE 2 ==================== -->
+  <div class="slide" id="slide-2">
+    <div class="top-header">
+      <div class="pill-badge">Campus2Industry</div>
+      <div class="slide-center-title">IDEA TITLE</div>
+      <div class="sih-badge">
+        <div class="sih-badge-text">
+          <div class="sih-badge-title">SMART INDIA HACKATHON 2026</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-area">
+      <!-- Left Card: Idea & Proposed Solution -->
+      <div class="col">
+        <div class="card" style="height: 100%;">
+          <div class="section-title">IDEA: Campus2Industry</div>
+          
+          <div style="margin-top: 8px;">
+            <div style="font-size: 12.5px; font-weight: 700; color: #0f172a; margin-bottom: 4px;">Proposed Solution</div>
+            <ul>
+              <li><strong>Unified 4-Year Career Readiness:</strong> An AI-powered ecosystem bridging academia, verified skills, industry-grade projects, internships, assessments, and final placements.</li>
+              <li><strong>Progressive Student Pipeline:</strong> Structured path: <strong>ORIENT (Y1) → DISCOVER (Y2) → BUILD (Y3) → PRACTICE (Y3.5) → DEPLOY (Y4)</strong>.</li>
+            </ul>
+          </div>
+
+          <div style="margin-top: 14px;">
+            <div style="font-size: 12.5px; font-weight: 700; color: #0f172a; margin-bottom: 4px;">How It Addresses the Problem</div>
+            <ul>
+              <li><strong>Common Skill Language:</strong> Unifies academic syllabi and live industry hiring requirements into a single dynamic taxonomy.</li>
+              <li><strong>Objective Competence Diagnostics:</strong> Instantly pinpoints what a student knows, what exact skills are missing, and gives step-by-step remediation.</li>
+              <li><strong>Eligibility-Driven Matching:</strong> Connects students to verified internships and job drives matching their actual proof-of-work.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Card: Innovation & Uniqueness -->
+      <div class="col">
+        <div class="card card-blue" style="height: 100%;">
+          <div class="section-title" style="color: #1d4ed8;">Innovation & Uniqueness</div>
+          
+          <ul style="margin-top: 8px; display: flex; flex-direction: column; gap: 8px;">
+            <li>
+              <strong>Evidence-Based Skill Profile (Claim ≠ Verified Skill):</strong><br>
+              Replaces unsubstantiated resume claims with verifiable code proofs (GitHub repo checks, proctored quizzes, and real application builds).
+            </li>
+            <li>
+              <strong>Explainable Matchmaking Engine:</strong><br>
+              Transparently shows matched skills, missing delta competencies, role suitability index, and direct bridge courses.
+            </li>
+            <li>
+              <strong>Next Best Action (NBA) Recommendation Engine:</strong><br>
+              Autonomous guidance: <em>"Complete Docker containerization module to reach 90% Zoho developer cutoff"</em>.
+            </li>
+            <li>
+              <strong>Dual-Mode AI Career Coach:</strong><br>
+              Integrated Google Gemini AI for mock technical interview drills and ATS resume refinement with deterministic offline fallbacks.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bar">
+      <div class="footer-badge">@SIH Idea submission- Template</div>
+      <div class="slide-number">2</div>
+    </div>
+  </div>
+
+  <!-- ==================== SLIDE 3 ==================== -->
+  <div class="slide" id="slide-3">
+    <div class="top-header">
+      <div class="pill-badge">Campus2Industry</div>
+      <div class="slide-center-title">TECHNICAL APPROACH</div>
+      <div class="sih-badge">
+        <div class="sih-badge-text">
+          <div class="sih-badge-title">SMART INDIA HACKATHON 2026</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-area" style="flex-direction: column; gap: 10px;">
+      <div style="display: flex; gap: 16px; flex: 1;">
+        <!-- Left: Technical Architecture -->
+        <div class="card" style="flex: 1.2;">
+          <div class="section-title">TECHNICAL ARCHITECTURE & COMPLETE STACK</div>
+          <ul style="margin-top: 6px; display: flex; flex-direction: column; gap: 6px;">
+            <li><strong>Frontend Presentation:</strong> React 19, Vite 8, Vanilla CSS Glassmorphic Design System, Lucide Icons, Recharts, Responsive Grid Architecture.</li>
+            <li><strong>Backend & APIs:</strong> Python + FastAPI, Asynchronous Concurrency, RESTful Microservices, Pydantic Schema Validation, JWT Security.</li>
+            <li><strong>Database & Persistence:</strong> PostgreSQL Relational Schema (Users, Roles, Taxonomies, Assessment Logs), Browser LocalStorage Client Vault.</li>
+            <li><strong>AI & Intelligence Engine:</strong> Google Gemini Generative AI SDK (<code>@google/generative-ai</code>), Structured JSON Mode, Dynamic ATS Evaluator.</li>
+          </ul>
+        </div>
+
+        <!-- Right: Flow -->
+        <div class="card card-blue" style="flex: 0.8;">
+          <div class="section-title">IMPLEMENTATION FLOW PIPELINE</div>
+          <p style="font-size: 11px; line-height: 1.6; margin-top: 4px;">
+            <strong>Student Profile Ingestion</strong> → <strong>Target Career Goal</strong> → <strong>Skill Assessment</strong> → <strong>Verified Evidence</strong> → <strong>Dynamic Skill-Gap Delta</strong> → <strong>Curated Remediation Roadmap</strong> → <strong>Projects/Internships</strong> → <strong>AI Mock Interview</strong> → <strong>Placement Readiness</strong> → <strong>Digital Career Passport</strong>
+          </p>
+        </div>
+      </div>
+
+      <!-- MANDATORY RULE 4: GitHub Link Box -->
+      <div class="link-box">
+        <div class="link-title">🔗 Official Project Coding & Source Code Repository (GitHub)</div>
+        <div class="link-val">https://github.com/faizz-hub/campustoindustry</div>
+        <p style="font-size: 10px; color: #166534; margin-top: 2px;">
+          Includes full React 19 codebase, Gemini AI integration services, modular college notes dataset, placement cheat sheets, and deployment build files.
+        </p>
+      </div>
+    </div>
+
+    <div class="footer-bar">
+      <div class="footer-badge">@SIH Idea submission- Template</div>
+      <div class="slide-number">3</div>
+    </div>
+  </div>
+
+  <!-- ==================== SLIDE 4 ==================== -->
+  <div class="slide" id="slide-4">
+    <div class="top-header">
+      <div class="pill-badge">Campus2Industry</div>
+      <div class="slide-center-title">FEASIBILITY AND VIABILITY</div>
+      <div class="sih-badge">
+        <div class="sih-badge-text">
+          <div class="sih-badge-title">SMART INDIA HACKATHON 2026</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-area" style="flex-direction: column; gap: 10px;">
+      <div style="display: flex; gap: 14px; flex: 1;">
+        <!-- Feasibility -->
+        <div class="card" style="flex: 1;">
+          <div class="section-title">FEASIBILITY</div>
+          <ul>
+            <li><strong>Software-Only Solution:</strong> Zero dependency on proprietary hardware; works on any mobile or desktop browser.</li>
+            <li><strong>Modular Phased Scalability:</strong> Independent decoupling of client SPA, AI microservices, and database layers.</li>
+            <li><strong>Resilient Dual-Mode Engine:</strong> Operates dynamically via Google Gemini API and graceful deterministic fallbacks.</li>
+          </ul>
+        </div>
+
+        <!-- Risks -->
+        <div class="card" style="flex: 1;">
+          <div class="section-title red">POTENTIAL CHALLENGES / RISKS</div>
+          <ul>
+            <li class="red-bullet"><strong>Taxonomy Drift:</strong> Industry frameworks evolve rapidly; static benchmarks risk obsolescence.</li>
+            <li class="red-bullet"><strong>AI Response Inconsistency:</strong> Generative models may yield variable feedback across answers.</li>
+            <li class="red-bullet"><strong>Student Privacy:</strong> Academic data and placement records require strict compliance and protection.</li>
+          </ul>
+        </div>
+
+        <!-- Mitigation -->
+        <div class="card" style="flex: 1;">
+          <div class="section-title green">RISK MITIGATION</div>
+          <ul>
+            <li class="green-bullet"><strong>Versioned Skill Taxonomies:</strong> Admin-reviewed, periodic automated data curation.</li>
+            <li class="green-bullet"><strong>Strict AI Schema Grounding:</strong> Structured JSON output mode prevents hallucinations.</li>
+            <li class="green-bullet"><strong>RBAC & Data Tokenization:</strong> Strict role-based isolation (Student vs TPO vs Recruiter).</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- MANDATORY RULE 5: App & Website Links Box -->
+      <div class="card card-blue" style="padding: 10px 14px;">
+        <div class="section-title" style="color: #1d4ed8; font-size: 12px; margin-bottom: 4px;">🌐 Associated Application & Website Deployment Links</div>
+        <div style="display: flex; gap: 30px; font-size: 11px;">
+          <div>
+            <strong>• Live Web Application (Production): </strong>
+            <a href="https://github.com/faizz-hub/campustoindustry#live-demo" style="color: #2563eb; font-weight: 700;">https://github.com/faizz-hub/campustoindustry#live-demo</a>
+          </div>
+          <div>
+            <strong>• Active Prototype Local Host: </strong>
+            <span style="color: #2563eb; font-weight: 700;">http://localhost:5173</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bar">
+      <div class="footer-badge">@SIH Idea submission- Template</div>
+      <div class="slide-number">4</div>
+    </div>
+  </div>
+
+  <!-- ==================== SLIDE 5 ==================== -->
+  <div class="slide" id="slide-5">
+    <div class="top-header">
+      <div class="pill-badge">Campus2Industry</div>
+      <div class="slide-center-title">IMPACT AND BENEFITS</div>
+      <div class="sih-badge">
+        <div class="sih-badge-text">
+          <div class="sih-badge-title">SMART INDIA HACKATHON 2026</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-area" style="flex-direction: column; gap: 10px;">
+      <!-- 3 Stakeholders -->
+      <div style="display: flex; gap: 14px; flex: 1;">
+        <div class="card" style="flex: 1;">
+          <div class="section-title">STUDENTS</div>
+          <ul>
+            <li>Clear 4-year career direction from Day 1.</li>
+            <li>Measurable skill growth with verified proofs.</li>
+            <li>Real-time ATS resume builder & ATS score.</li>
+            <li>AI mock interview prep for top tech roles.</li>
+          </ul>
+        </div>
+
+        <div class="card" style="flex: 1;">
+          <div class="section-title">COLLEGES / FACULTY</div>
+          <ul>
+            <li>Department-level placement readiness heatmap.</li>
+            <li>Early intervention for academically weak students.</li>
+            <li>Curriculum feedback loop from rejection analytics.</li>
+            <li>Consolidated internship & project tracking.</li>
+          </ul>
+        </div>
+
+        <div class="card" style="flex: 1;">
+          <div class="section-title">INDUSTRY / RECRUITERS</div>
+          <ul>
+            <li>Pre-verified candidate skill profiles.</li>
+            <li>Targeted internships & live project hiring.</li>
+            <li>3x faster shortlisting velocity.</li>
+            <li>Zero logistics overhead in campus drives.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Key Benefits & Metrics -->
+      <div class="card" style="padding: 8px 14px;">
+        <div style="font-size: 11px; color: #0f172a;">
+          <strong>KEY BENEFITS:</strong> One continuous 4-year ecosystem • Personalized Next Best Action • Explainable matching • Evidence-backed Digital Career Passport
+        </div>
+        <div style="font-size: 10.5px; color: #1d4ed8; margin-top: 3px;">
+          <strong>SUCCESS METRICS:</strong> 40% skill-gap closure • 60% boost in ATS resume clearance • 3x internship match accuracy
+        </div>
+      </div>
+
+      <!-- MANDATORY RULE 6: Product Video Link -->
+      <div class="card card-red" style="padding: 10px 14px;">
+        <div class="section-title red" style="font-size: 12px; margin-bottom: 2px;">🎥 Official Product Demonstration Video Link</div>
+        <div style="font-size: 11px;">
+          <strong>• Product Walkthrough Video (GitHub Hosted): </strong>
+          <a href="https://github.com/faizz-hub/campustoindustry#product-demo-video" style="color: #b91c1c; font-weight: 700;">https://github.com/faizz-hub/campustoindustry#product-demo-video</a>
+          <span style="color: #64748b; font-size: 10px; margin-left: 10px;">(Includes 4-Year Journey, ATS Resume Creator, Notes Library, and AI Mock Interview)</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bar">
+      <div class="footer-badge">@SIH Idea submission- Template</div>
+      <div class="slide-number">5</div>
+    </div>
+  </div>
+
+  <!-- ==================== SLIDE 6 ==================== -->
+  <div class="slide" id="slide-6">
+    <div class="top-header">
+      <div class="pill-badge">Campus2Industry</div>
+      <div class="slide-center-title">RESEARCH AND REFERENCES</div>
+      <div class="sih-badge">
+        <div class="sih-badge-text">
+          <div class="sih-badge-title">SMART INDIA HACKATHON 2026</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-area">
+      <!-- Left Column -->
+      <div class="col">
+        <div class="card" style="height: 100%;">
+          <div class="section-title">Official / Problem Context</div>
+          <ul>
+            <li>Smart India Hackathon 2026 Official Idea Submission Guidelines & Presentation Template.</li>
+            <li>SIH Problem Statement SIH26044: Portal for Academia - Industry collaboration for Skill Mapping, Internships and Placement.</li>
+            <li>National Education Policy (NEP 2020) framework on continuous skill mapping & Academic Bank of Credits (ABC).</li>
+          </ul>
+
+          <div class="section-title" style="margin-top: 18px;">Technical References</div>
+          <ul>
+            <li>React 19 & Vite 8 Documentation — Single-page application architecture and optimized HMR bundles.</li>
+            <li>FastAPI Documentation — Asynchronous REST APIs, concurrency benchmarks, and Pydantic validation.</li>
+            <li>PostgreSQL 16 Documentation — Relational data schema, index optimization, and RBAC security models.</li>
+            <li>Google Generative AI Documentation — Gemini 2.5/3.6 Flash capabilities and JSON Mode prompting.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Right Column -->
+      <div class="col">
+        <div class="card" style="height: 100%;">
+          <div class="section-title">Research Areas</div>
+          <ul>
+            <li><strong>Competency-Based Skill Mapping:</strong> Research on closing the graduate employability gap through progressive learning roadmaps.</li>
+            <li><strong>Explainable AI in Talent Acquisition:</strong> Transparent algorithm design replacing black-box screening in HR Tech.</li>
+            <li><strong>Industry Skill Taxonomies:</strong> O*NET OnLine and European ESCO hierarchical skill classification frameworks.</li>
+          </ul>
+
+          <div class="section-title" style="color: #d97706; margin-top: 18px;">Prototype Note</div>
+          <p style="font-size: 11px; line-height: 1.5; color: #475569;">
+            • The working prototype is fully operational with reactive UI modules, live Gemini AI career services, and persistent client state.<br>
+            • Seeded job opportunities and company cheat sheets are realistic simulations modeled after Tier-1/Tier-2 campus recruitment patterns in India.<br>
+            • Corporate partner hiring feeds and institutional LMS integrations will be onboarded in Phase 2 deployment.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bar">
+      <div class="footer-badge">@SIH Idea submission- Template</div>
+      <div class="slide-number">6</div>
+    </div>
+  </div>
+
+</body>
+</html>
